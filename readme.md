@@ -3,7 +3,7 @@
 ## 📌 Informations générales
 - **Langage** : Java  
 - **Mode** : Console (texte)  
-- **Binôme** : [Ton nom] & [Nom du binôme]  
+- **Groupe** : Astride SAMAN, Holisoa RASAMOELSON & Quoc-Kim BUI
 - **Design patterns utilisés** :  
   - ✅ Strategy (promotions)  
   - ✅ State (états du panier)  
