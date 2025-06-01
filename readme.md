@@ -16,18 +16,18 @@
 - Application simulant un panier d’achat en ligne.
 - Fonctionnalités principales :
   - Ajout/suppression d’articles
-  - Calcul du total en temps réel
-  - Application automatique de promotions
+  - Calcul du total avec ou sans promotion
+  - Application d'une promotion en fonction d'une condition
 
 ---
 
 ### 2. Diagramme de classes
 - Classes principales :
-  - `Panier` (composée d’une stratégie et d’un état)
+  - `ShoppingCart` (composée d’une stratégie et d’un état)
   - `PromotionStrategy` (interface)
     - `RemisePourcentage`, `RemiseFixe`...
-  - `PanierState` (interface)
-    - `PanierOuvert`, `PanierValide`
+  - `CartState` (interface)
+    - `EmptyCartState`, `ActiveCartState`, `PromotionAppliedState`
 - Le diagramme UML illustre clairement l'utilisation de Strategy et State.
 
 ---
@@ -40,16 +40,17 @@
 
 #### State
 - Gère le comportement du panier selon son état :
-  - `PanierOuvert` → on peut ajouter des articles
-  - `PanierValide` → plus de modification possible
+  - `EmptyCartState` → on peut ajouter des articles
+  - `ActiveCartState` → on peut ajouter, retirer des articles, et appliquer une promotion si possible
+  - `PromotionAppliedState` → plus de modification possible
 
 ---
 
 ### 4. Points positifs / négatifs
 
-| ✅ Points positifs                         | ❌ Points négatifs                                  |
+| ✅ Points positifs                        | ❌ Points négatifs                                 |
 |-------------------------------------------|----------------------------------------------------|
-| Modifiabilité facile                      | Implémentation du State plus complexe à débuter    |
+| Prévention des erreurs                    | Implémentation du State plus complexe à débuter    |
 | Bonne séparation des responsabilités      | Gestion manuelle de certaines transitions d'état   |
 | Code réutilisable                         | Besoin d’une structure claire dès le départ        |
 
